@@ -9,19 +9,45 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) UIBarButtonItem *close;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    UILabel *testlabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 200, 50)];
+    testlabel.backgroundColor = [UIColor greenColor];
+    testlabel.text = @"This is just some text";
+    testlabel.tintColor = [UIColor whiteColor];
+    testlabel.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, 150);
+    testlabel.textAlignment = NSTextAlignmentCenter;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"Exepmlar 1";
+    
+    self.navigationItem.title = @"Exemplar 1";
+    
+    self.close = [[UIBarButtonItem alloc] init];
+    self.close.title = @"test1";  
+    self.navigationItem.rightBarButtonItem = self.close;
+    
+   // UINavigationController *nvc = [[UINavigationController alloc] init];
+    //nvc.title = @"this is a title";
+    
+    [self.view addSubview:testlabel];
+    
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationItem setTitle:@"exemplar 1"];
 }
+
 
 @end
